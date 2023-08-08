@@ -1,0 +1,24 @@
+<div class="w-full bg-gray-200 dark:bg-gray-900 py-10">
+    <div class="container mx-auto px-6 flex items-center justify-center">
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{{organization.name}}</h1>
+    </div>
+    <app-loading-spinner *ngIf="isLoading" class="flex justify-center pt-5"></app-loading-spinner>
+    <div class="container mx-auto px-6 flex items-center justify-center py-10">
+    </div>
+    <div class="container mx-auto px-6 flex items-start justify-center">
+        <div *ngIf="products.length === 0 && !isLoading">
+            <h3 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">No products currently available from {{organization.name}}</h3>
+        </div>
+        <div *ngFor="let product of products" class="bg-white dark:bg-gray-800 shadow rounded xl:flex lg:flex w-full">
+            <div class="w-full bg-gray-100 dark:bg-gray-800 py-8 flex justify-center items-center grid-cols-5">
+                <div class="flex flex-col items-center">
+                    <div class="h-24 w-24 rounded-full mb-3">
+                        <img alt="" class="h-full w-full object-cover rounded-full shadow" height="32" ngSrc="favicon.ico" width="32"/>
+                    </div>
+                    <p class="mb-2 text-lg font-bold text-gray-900 dark:text-gray-100">{{product.name}}</p>
+                    <button class="bg-white font-medium transition duration-150 ease-in-out hover:bg-gray-200 rounded text-gray-800 px-6 py-2 text-sm border border-gray-300 dark:border-gray-200 focus:outline-none">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

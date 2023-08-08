@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "constancy-cli"
+version = "0.1.0"
+description = ""
+authors = ["Jonathan Lee <jonathan.lee.devel@gmail.com>"]
+readme = "README.md"
+packages = [{include = "constancy_cli"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  client:
+    image: jonathanleedev/sparrow-express-ui:latest
+    ports:
+      - '443:443'
+    volumes:
+      - ${SERVER_CERT_PATH}:/etc/nginx/server.crt
+      - ${SERVER_KEY_PATH}:/etc/nginx/server.key

@@ -1,0 +1,1 @@
+export const DEFAULT_TOKEN_EXPIRY_TIME_DAYS = 14;

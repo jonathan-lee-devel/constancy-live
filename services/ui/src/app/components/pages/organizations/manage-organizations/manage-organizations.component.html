@@ -1,0 +1,72 @@
+<app-loading-spinner *ngIf="isLoading" class="flex justify-center"></app-loading-spinner>
+<h1 *ngIf="!isLoading" class="flex justify-center mb-4 mt-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Manage Organizations</h1>
+<div class="px-4 pt-6">
+  <div class="grid grid-cols-1 my-4 xl:grid-cols-2 xl:gap-4">
+  </div>
+  <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+    <!-- Card header -->
+    <div class="items-center justify-between lg:flex">
+      <div class="mb-4 lg:mb-0">
+        <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">Organizations</h3>
+        <span class="text-base font-normal text-gray-500 dark:text-gray-400">This is a list of organizations where you are currently involved</span>
+      </div>
+    </div>
+    <!-- Table -->
+    <div class="flex flex-col mt-6">
+      <div class="overflow-x-auto rounded-lg">
+        <div class="inline-block min-w-full align-middle">
+          <div class="overflow-hidden shadow sm:rounded-lg">
+            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+              <thead class="bg-gray-50 dark:bg-gray-700">
+              <tr>
+                <th class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white" scope="col">
+                  Organization
+                </th>
+                <th class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white" scope="col">
+                  Member Status
+                </th>
+                <th class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white" scope="col">
+                  Administrator Status
+                </th>
+                <th class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white" scope="col">
+                  Action
+                </th>
+              </tr>
+              </thead>
+              <tbody class="bg-white dark:bg-gray-800">
+              <tr *ngIf="isLoading">
+                <td class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                  <app-loading-spinner class="flex justify-center"></app-loading-spinner>
+                </td>
+                <td class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
+                  <app-loading-spinner class="flex justify-center"></app-loading-spinner>
+                </td>
+                <td class="p-4 text-sm font-semibold text-gray-500 whitespace-nowrap dark:text-gray-400">
+                  <app-loading-spinner class="flex justify-center"></app-loading-spinner>
+                </td>
+                <td class="p-4 text-sm font-semibold text-gray-500 whitespace-nowrap dark:text-gray-400">
+                  <app-loading-spinner class="flex justify-center"></app-loading-spinner>
+                </td>
+              </tr>
+              <tr *ngFor="let organization of organizations">
+                <td class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                  {{organization.name}}
+                </td>
+                <td class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                  {{(organization.memberEmails.includes(currentUser.email)) ? '✓' : '𐄂'}}
+                </td>
+                <td class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                  {{(organization.administratorEmails.includes(currentUser.email)) ? '✓' : '𐄂'}}
+                </td>
+                <td class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                  <button routerLink="/organizations/dashboard/{{organization.id}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Manage</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

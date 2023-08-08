@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  api-server:
+    build:
+      context: .
+    container_name: constancy-api-server
+    image: test
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - MONGO_URL=mongodb://host.docker.internal:27017/books
+      - SESSION_SECRET=keyboardcat
+      - GOOGLE_CLIENT_ID=test
+      - GOOGLE_CLIENT_SECRET=test
+    volumes:
+      - ./logs:/logs
+    networks:
+      - app-network
+    ports:
+      - "3000:3000"
+  mongo:
+    image: mongo:latest
+    container_name: constancy-mongo-db
+    ports:
+      - "27017:27017"
+
+networks:
+  app-network:
+    driver: bridge

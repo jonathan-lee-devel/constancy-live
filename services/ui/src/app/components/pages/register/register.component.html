@@ -1,0 +1,55 @@
+<section class="bg-gray-50 dark:bg-gray-900 pt-12">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <a class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white" href="#">
+      <img alt="logo" class="w-8 h-8 mr-2" height="32" ngSrc="favicon.ico" width="32">
+      Constancy
+    </a>
+    <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+          Register for an account
+        </h1>
+        <form (ngSubmit)="doRegister()" class="space-y-4 md:space-y-6">
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="email">E-mail</label>
+            <input [(ngModel)]="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="email" name="email" placeholder="user@mail.com" required type="email">
+          </div>
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="email">First Name</label>
+            <input [(ngModel)]="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="firstName" name="firstName" placeholder="First Name" required type="text">
+          </div>
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="email">Last Name</label>
+            <input [(ngModel)]="lastName" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="lastName" name="lastName" placeholder="Last Name" required type="text">
+          </div>
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="password">Password</label>
+            <input [(ngModel)]="password" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="password" name="password" placeholder="Password" required type="password">
+          </div>
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="password">Confirm Password</label>
+            <input [(ngModel)]="confirmPassword" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required type="password">
+          </div>
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <input [(ngModel)]="acceptTermsAndConditions" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" id="acceptTermsAndConditions" name="acceptTermsAndConditions" required type="checkbox">
+            </div>
+            <div class="ml-3 text-sm">
+              <label class="text-gray-500 dark:text-gray-300" for="acceptTermsAndConditions">Accept <a class="underline italic" href="https://github.com/jonathan-lee-devel/sparrow/blob/main/LICENSE">Terms and Conditions</a></label>
+            </div>
+          </div>
+          <button class="w-full text-white bg-primary-600 border-2 hover:bg-primary-700 focus:ring-4 focus:outline-none ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit">Sign Up</button>
+          <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+            Already have an account? <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" routerLink="/login">Sign In</a>
+          </p>
+        </form>
+        <div class="flex justify-center items-center">
+          <button (click)="doGoogleLogin()" class="flex items-center px-4 py-2 border border-slate-200 rounded-lg text-white hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
+            <img alt="google logo" class="w-6 h-6" loading="lazy" src="https://www.svgrepo.com/show/475656/google-color.svg">
+            <span class="ml-2">Login with Google</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

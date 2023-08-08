@@ -1,0 +1,28 @@
+<div
+  class="backdrop-blur-sm bg-white/75 dark:bg-slate-900/75 z-50 top-0 left-0 right-0 h-20 border-b border-slate-300 dark:border-slate-700 shadow-sm flex items-center justify-between">
+  <div class="container max-w-7xl mx-auto w-full flex justify-between items-center">
+    <a class="btn text-white underline pl-5" href="/">
+      Constancy
+    </a>
+  </div>
+  <div *ngIf="!isLoggedIn" class="md:flex gap-4 pr-10">
+    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" routerLink="/login">
+      Login
+    </a>
+  </div>
+  <div *ngIf="!isLoggedIn" class="md:flex gap-4 pr-10">
+    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" routerLink="/register">
+      Register
+    </a>
+  </div>
+  <div *ngIf="isLoggedIn" class="md:flex gap-4 pr-10">
+    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" routerLink="/dashboard">
+      Dashboard
+    </a>
+  </div>
+  <div *ngIf="isLoggedIn" class="md:flex gap-4 pr-10">
+    <a (click)="doLogout()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Logout
+    </a>
+  </div>
+</div>
