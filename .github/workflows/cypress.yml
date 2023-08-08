@@ -19,7 +19,6 @@ jobs:
         with:
           working-directory: ./services/ui
           record: true
-          build: npm run build
           start: npm run start, npm run api
           wait-on: http://localhost:3000
         env:
